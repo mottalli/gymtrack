@@ -17,12 +17,12 @@ export type SetLoggerProps = {
 // The parent keys this component by exercise / new-set count / edited set.
 export function SetLogger({ exercise, setNumber, initialSet, defaultWarmup = false, previousSet, firstWorkingSet = false, recommendedWeight, onSave, onCancel }: SetLoggerProps) {
   const defaults = (warmup: boolean): { reps: number | ''; weight: number | '' } => {
-    if (initialSet) return { reps: initialSet.reps, weight: initialSet.weight ?? '' }
+    if (initialSet) return { reps: initialSet.reps, weight: initialSet.weight ?? 0 }
     if (!warmup && firstWorkingSet) {
       const maximum = Number(exercise.repRange.match(/\d+/g)?.at(-1))
-      return { reps: Number.isInteger(maximum) && maximum > 0 ? maximum : '', weight: recommendedWeight ?? '' }
+      return { reps: Number.isInteger(maximum) && maximum > 0 ? maximum : '', weight: recommendedWeight ?? 0 }
     }
-    return { reps: previousSet?.reps ?? '', weight: previousSet?.weight ?? '' }
+    return { reps: previousSet?.reps ?? '', weight: previousSet?.weight ?? 0 }
   }
   const initial = defaults(initialSet?.warmup ?? defaultWarmup)
   const [reps, setReps] = useState<number | ''>(initial.reps)
@@ -58,7 +58,7 @@ export function SetLogger({ exercise, setNumber, initialSet, defaultWarmup = fal
       }} /> Warm-up</label>
     </div>
     <NumberStepper label="Reps" value={reps} onChange={setReps} min={1} max={999} integer />
-    {exercise.weightUnit && <NumberStepper label={exercise.weightUnit} value={weight} onChange={setWeight} />}
+    {exercise.weightUnit && <NumberStepper label={exercise.weightUnit} value={weight} onChange={setWeight} min={0} increment={0.5} />}
     <button className="primary" type="submit">{initialSet ? 'Save set' : 'Log set'}<span aria-hidden="true">{initialSet ? '✓' : '→'}</span></button>
     {initialSet && <button className="cancel-edit" type="button" onClick={onCancel}>Cancel edit</button>}
     </fieldset>

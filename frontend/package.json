@@ -10,6 +10,7 @@
     "typecheck": "tsc -b",
     "test": "vitest --project storybook run",
     "test:e2e": "node tests/smoke.mjs",
+    "test:stepper": "node tests/number-stepper.mjs",
     "test:exercises": "node --experimental-strip-types --test tests/exercise-motions.test.mjs && node tests/exercise-previews.mjs",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --host 127.0.0.1 --no-open",

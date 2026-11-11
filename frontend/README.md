@@ -111,9 +111,13 @@ prototypes/               Previous standalone design studies
   with four exercises per day and three working sets per exercise, excluding warm-ups.
 - Storybook uses independent sample fixtures for isolated UI scenarios.
 - New sets carry over the last logged set's values. The first working set uses
-  the upper rep target and suggested weight (blank weight if unavailable).
-  The first warm-up starts blank. Prefilling never records a set automatically.
-- Tap controls increment by 1 rep / 1 kg. Direct weight entry accepts fractions.
+  the upper rep target and suggested weight (0 if unavailable).
+  The first warm-up starts with blank reps and weight 0. Prefilling never records a set automatically.
+- Tap controls increment by 1 rep / 0.5 kg. Weight accepts 0 and never decrements below it. Direct weight entry accepts fractions.
+- Hold either +/− button to repeat: repetition begins after 350 ms, starts at
+  90 ms per step, and accelerates to 35 ms after 1.5 seconds. Release, drag away,
+  or switch away from the page to stop. Step sizes and bounds stay unchanged.
+  Keyboard and assistive activation remain supported.
 - Users may log any number of working or warm-up sets.
 - The first two logged sets per exercise default to warm-ups, with warm-up
   colouring applied immediately. Users can override this; editing preserves
@@ -145,6 +149,13 @@ prototypes/               Previous standalone design studies
 - Statistics and plan editing remain out of scope.
 
 ### Preview checks
+
+Stepper mouse/touch hold behavior and cleanup can be checked without starting
+the app server:
+
+```sh
+npm run test:stepper
+```
 
 Run preview-specific checks without starting the app server:
 

@@ -110,7 +110,7 @@ try {
   await page.locator('.workout-choice').first().click()
   await page.getByLabel('kg', { exact: true }).waitFor()
   assert.match(await page.locator('.suggestion-note').textContent(), /last working weight/)
-  assert.equal(await page.getByLabel('kg', { exact: true }).inputValue(), '')
+  assert.equal(await page.getByLabel('kg', { exact: true }).inputValue(), '0')
   // Network failure must preserve the entered values and allow retry.
   await page.getByLabel('Reps', { exact: true }).fill('6')
   await page.getByLabel('kg', { exact: true }).fill('22.5')

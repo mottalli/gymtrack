@@ -26,7 +26,7 @@ export const ReadyToTrain: Story = {
       if (index < 2) await expect(warmup).toBeChecked()
       else await expect(warmup).not.toBeChecked()
       await expect(canvas.getByLabelText('Reps')).toHaveValue(index === 0 ? null : index === 1 ? 10 : 6)
-      await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(index === 0 ? null : index === 1 ? 10 : 20)
+      await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(index === 0 ? 0 : index === 1 ? 10 : 20)
       await userEvent.clear(canvas.getByLabelText('Reps'))
       await userEvent.clear(canvas.getByLabelText('kg / dumbbell'))
       await userEvent.type(canvas.getByLabelText('Reps'), index === 0 ? '10' : index === 1 ? '8' : '5')
@@ -48,7 +48,7 @@ export const NoPreviousPerformance: Story = {
   play: async ({ canvas, userEvent }) => {
     await userEvent.click(canvas.getByLabelText('Warm-up'))
     await expect(canvas.getByLabelText('Reps')).toHaveValue(6)
-    await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(null)
+    await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(0)
   },
 }
 export const MidWorkout: Story = { args: { session: sampleSession } }

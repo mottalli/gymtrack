@@ -15,6 +15,7 @@ type Story = StoryObj<typeof meta>
 export const NewWorkingSet: Story = {
   play: async ({ canvas, userEvent, args }) => {
     await expect(canvas.getByLabelText('Reps')).toHaveValue(null)
+    await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(0)
     await userEvent.type(canvas.getByLabelText('Reps'), '6')
     await userEvent.type(canvas.getByLabelText('kg / dumbbell'), '20')
     await userEvent.click(canvas.getByRole('button', { name: 'Log set' }))
@@ -88,5 +89,36 @@ export const CarryOverPreviousSet: Story = {
   play: async ({ canvas }) => {
     await expect(canvas.getByLabelText('Reps')).toHaveValue(6)
     await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(20)
+  },
+}
+
+export const ZeroWeightSet: Story = {
+  args: { firstWorkingSet: true },
+  play: async ({ canvas, userEvent, args }) => {
+    const weight = canvas.getByLabelText('kg / dumbbell')
+    await expect(weight).toHaveValue(0)
+    await userEvent.click(canvas.getByRole('button', { name: 'Increase kg / dumbbell' }))
+    await expect(weight).toHaveValue(0.5)
+    await userEvent.click(canvas.getByRole('button', { name: 'Decrease kg / dumbbell' }))
+    await userEvent.click(canvas.getByRole('button', { name: 'Decrease kg / dumbbell' }))
+    await expect(weight).toHaveValue(0)
+    await userEvent.click(canvas.getByRole('button', { name: 'Log set' }))
+    await expect(args.onSave).toHaveBeenCalledWith({ reps: 6, weight: 0, warmup: false })
+  },
+}
+
+export const CarryOverZeroWeight: Story = {
+  args: { previousSet: { ...sampleSets[0], weight: 0 }, setNumber: 2 },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(0)
+  },
+}
+
+export const EditZeroWeight: Story = {
+  args: { initialSet: { ...sampleSets[0], weight: 0 } },
+  play: async ({ canvas, userEvent, args }) => {
+    await expect(canvas.getByLabelText('kg / dumbbell')).toHaveValue(0)
+    await userEvent.click(canvas.getByRole('button', { name: 'Save set' }))
+    await expect(args.onSave).toHaveBeenCalledWith({ reps: 6, weight: 0, warmup: false })
   },
 }

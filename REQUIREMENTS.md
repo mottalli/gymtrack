@@ -34,10 +34,12 @@ Create a phone-friendly web app for tracking gym workouts. Its primary goal is t
 - Exercises are presented in plan order, but the user can skip or move between exercises.
 - The app supports logging fewer or more sets than the plan calls for. The user can add sets.
 - New set controls carry over reps and weight from the last logged set of that exercise, using logging order rather than display order.
-- For the first working (non-warm-up) set, pre-fill the maximum target reps and suggested weight, if available. Without a weight suggestion, leave weight blank. This also applies when the user switches an early warm-up to a working set.
-- The first warm-up has blank inputs when there is no previous set. Editing always loads the recorded values.
+- For the first working (non-warm-up) set, pre-fill the maximum target reps and suggested weight, if available. Without a weight suggestion, default weight to 0. This also applies when the user switches an early warm-up to a working set.
+- The first warm-up has blank reps and weight 0 when there is no previous set. Editing always loads the recorded values.
 - Pre-filled values are not recorded until the user explicitly logs the set.
 - Reps and weight inputs have prominent `+ [number] −` controls for quick tap-based entry. Direct number entry remains available.
+- Weight controls accept 0, default to 0 when there is no carried-over or recommended weight, and adjust by 0.5 kg per button tap. They cannot decrement below 0. Reps still adjust by 1.
+- Pressing and holding either stepper button repeats its action after a short delay and accelerates the repetition rate for longer holds, without changing the individual step size. A tap applies exactly one step, with no extra step on release. Repeating stops on release, pointer cancellation, leaving the button, losing page focus/visibility, disabling the control, or unmounting.
 - The user can edit any recorded set, including sets in past workout sessions.
 - The user can finish a workout explicitly.
 - The home page offers to resume the persisted ongoing workout and highlights its workout by default, including after refresh.
