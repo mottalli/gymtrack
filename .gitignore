@@ -1,0 +1,55 @@
+# Gradle/Kotlin caches and generated builds (keep gradle/wrapper tracked)
+.gradle/
+.kotlin/
+build/
+
+# Frontend dependencies and generated output
+node_modules/
+dist/
+dist-ssr/
+storybook-static/
+*.tsbuildinfo
+coverage/
+test-results/
+playwright-report/
+screenshots/
+
+# Local workout data and SQLite sidecar files
+data/
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite3-journal
+
+# Local configuration and secrets (track example files)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Logs and crash dumps
+logs/
+*.log
+hs_err_pid*
+replay_pid*
+core
+core.*
+
+# Editor and OS metadata
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

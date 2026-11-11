@@ -1,0 +1,104 @@
+"""Provided plan definitions cannot be edited through this API."""
+type TrainingPlan {
+  id: ID!
+  name: String!
+  workouts: [Workout!]!
+}
+type Workout {
+  id: ID!
+  trainingPlanId: ID!
+  name: String!
+  position: Int!
+  exercises: [WorkoutExercise!]!
+}
+type Exercise {
+  id: ID!
+  name: String!
+  acceptsWeight: Boolean!
+}
+type WorkoutExercise {
+  id: ID!
+  position: Int!
+  exercise: Exercise!
+  targetRepsMin: Int!
+  targetRepsMax: Int!
+  plannedWorkingSets: Int
+}
+type WorkoutSession {
+  id: ID!
+  workoutId: ID!
+  startedAt: String!
+  isFinished: Boolean!
+  exercises: [SessionExercise!]!
+}
+"""Names, rep targets and acceptsWeight are historical snapshots."""
+type SessionExercise {
+  id: ID!
+  workoutExerciseId: ID!
+  """Derived through workout_exercise, not duplicated in session_exercise."""
+  exerciseId: ID!
+  position: Int!
+  name: String!
+  acceptsWeight: Boolean!
+  targetRepsMin: Int!
+  targetRepsMax: Int!
+  plannedWorkingSets: Int
+  """Last working weight from another session; progression formula is not yet defined."""
+  suggestedWeightGrams: Int
+  defaultSetType: SetType!
+  """Warm-ups first, then working sets, each in recorded order."""
+  sets: [LoggedSet!]!
+}
+enum SetType { WARMUP WORKING }
+type LoggedSet {
+  id: ID!
+  position: Int!
+  type: SetType!
+  reps: Int!
+  weightGrams: Int
+}
+type Query {
+  trainingPlans: [TrainingPlan!]!
+  trainingPlan(id: ID!): TrainingPlan
+  workout(id: ID!): Workout
+  workoutSession(id: ID!): WorkoutSession
+  """Newest first. limit is 1–100; offset is non-negative."""
+  workoutSessions(workoutId: ID, limit: Int = 50, offset: Int = 0): [WorkoutSession!]!
+}
+input LogSetInput {
+  """Optional client-generated ID makes retries idempotent."""
+  id: ID
+  sessionExerciseId: ID!
+  reps: Int!
+  """Required for weighted exercises, forbidden for reps-only exercises."""
+  weightGrams: Int
+  """Omit to default the first two logged sets per exercise to WARMUP."""
+  type: SetType
+}
+input UpdateSetInput {
+  reps: Int!
+  weightGrams: Int
+  """Omit to retain the recorded type."""
+  type: SetType
+}
+input FirstSetInput {
+  """Client-generated IDs make retries safe after a lost response."""
+  sessionId: ID!
+  id: ID!
+  workoutId: ID!
+  workoutExerciseId: ID!
+  reps: Int!
+  weightGrams: Int
+  type: SetType
+}
+type Mutation {
+  """Creates the session and its first set atomically."""
+  recordFirstSet(input: FirstSetInput!): WorkoutSession!
+  startWorkout(workoutId: ID!): WorkoutSession! @deprecated(reason: "Creates an empty finished session. Use recordFirstSet to start an ongoing workout.")
+  finishWorkoutSession(id: ID!): WorkoutSession!
+  logSet(input: LogSetInput!): WorkoutSession!
+  updateSet(id: ID!, input: UpdateSetInput!): WorkoutSession!
+  updateWorkoutSession(id: ID!, startedAt: String!): WorkoutSession!
+  deleteSet(id: ID!): Boolean!
+  deleteWorkoutSession(id: ID!): Boolean!
+}
