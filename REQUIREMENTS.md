@@ -78,6 +78,11 @@ Create a phone-friendly web app for tracking gym workouts. Its primary goal is t
 
 ## UX priorities
 
+- All 15 unique provided exercises include lightweight, animated SVG movement previews, reused wherever the same exercise appears.
+- Store each side/front illustration as a standalone, self-contained `.svg` file in `frontend/src/assets/exercises/`. These files are the editable source of truth for geometry, styling, and SMIL tracks; React embeds them inline for playback controls rather than generating the artwork.
+- Previews show compact, synchronized side and front SVG views side by side, including on phones. Flat bench front views look from the feet.
+- Previews provide shared pause/play controls, start paused for reduced-motion preferences, and are illustrative rather than validated technique instruction.
+
 - Selected visual direction: blue and white. Compare alternative interaction
   models within this shared palette rather than using color alone to distinguish them.
 

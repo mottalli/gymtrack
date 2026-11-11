@@ -1,0 +1,50 @@
+<svg viewBox="0 0 300 220" role="img" aria-labelledby="demo-title" aria-describedby="demo-description" xmlns="http://www.w3.org/2000/svg" width="300" height="220">
+<title id="demo-title">Deadlift — side view</title>
+<desc id="demo-description">Keep the bar close. Push through the floor and stand tall without leaning back. Simplified side-view projection; illustrative motion only.</desc>
+<path class="demo-floor" d="M28 202H272" fill="rgb(0, 0, 0)" stroke="rgb(203, 213, 235)" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter"/>
+<g class="demo-far-arm" transform="translate(8 -4)" fill="rgb(0, 0, 0)" stroke="rgb(154, 175, 234)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<polyline points="114,110 119,149 124,187" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="114,110 119,149 124,187;140,62 138,102 135,139;140,62 138,102 135,139;114,110 119,149 124,187;114,110 119,149 124,187" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g class="demo-body" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<g class="demo-leg demo-leg-0" opacity="1" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="166,137 126,167 150,198" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="166,137 126,167 150,198;148,126 145,164 145,198;148,126 145,164 145,198;166,137 126,167 150,198;166,137 126,167 150,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="150,198 162,198" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="150,198 162,198;145,198 157,198;145,198 157,198;150,198 162,198;150,198 162,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g class="demo-leg demo-leg-1" opacity="0.45" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="166,137 142,167 164,198" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="166,137 142,167 164,198;148,126 158,163 160,198;148,126 158,163 160,198;166,137 142,167 164,198;166,137 142,167 164,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="164,198 176,198" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="164,198 176,198;160,198 172,198;160,198 172,198;164,198 176,198;164,198 176,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<polyline points="114,110 166,137" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="114,110 166,137;140,62 148,126;140,62 148,126;114,110 166,137;114,110 166,137" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="97,92 114,110" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="97,92 114,110;138,38 140,62;138,38 140,62;97,92 114,110;97,92 114,110" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<circle cx="97" cy="92" r="12">
+<animate attributeName="cx" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite" values="97;138;138;97;97"/>
+<animate attributeName="cy" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite" values="92;38;38;92;92"/>
+</circle>
+</g>
+<g class="demo-near-arm" fill="rgb(0, 0, 0)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<polyline points="114,110 119,149 124,187" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="114,110 119,149 124,187;140,62 138,102 135,139;140,62 138,102 135,139;114,110 119,149 124,187;114,110 119,149 124,187" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g>
+<g class="demo-dumbbell" transform="translate(124 187)" fill="rgb(37, 58, 89)" stroke="rgb(37, 58, 89)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<animateTransform attributeName="transform" type="translate" values="124 187;135 139;135 139;124 187;124 187" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+<circle r="16"/>
+<circle r="5" fill="#9cafd9" stroke="none"/>
+</g>
+</g>
+</svg>

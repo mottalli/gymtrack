@@ -10,6 +10,7 @@
     "typecheck": "tsc -b",
     "test": "vitest --project storybook run",
     "test:e2e": "node tests/smoke.mjs",
+    "test:exercises": "node --experimental-strip-types --test tests/exercise-motions.test.mjs && node tests/exercise-previews.mjs",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006 --host 127.0.0.1 --no-open",
     "build-storybook": "storybook build"
@@ -32,6 +33,7 @@
     "@vitejs/plugin-react": "^5.2.0",
     "@vitest/browser-playwright": "^5.1.0",
     "@vitest/coverage-v8": "^5.1.0",
+    "esbuild": "^0.28.2",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",

@@ -3,6 +3,7 @@ import type { Session, Workout, WorkoutSet } from '../domain'
 import { plan, setCount, suggestedWeight } from '../domain'
 import { SetLogger } from './SetLogger'
 import { SetList } from './SetList'
+import { ExerciseDemo } from './ExerciseDemo'
 
 export type WorkoutPageProps = {
   workout: Workout
@@ -54,6 +55,7 @@ export function WorkoutPage({ workout, session, history, editing, planName, busy
       <button key={ex.id} className={i === current ? 'active' : ''} aria-label={`Go to ${ex.name}`} aria-current={i === current ? 'step' : undefined} onClick={() => navigate(i)} />)}</nav>
     <section className="cockpit" aria-labelledby="exercise-title">
       <p className="eyebrow equipment">{exercise.equipment}</p><h2 id="exercise-title">{exercise.name}</h2>
+      <ExerciseDemo key={exercise.id} exercise={exercise} />
       <div className="target"><span>REP TARGET<strong>{exercise.repRange}</strong></span><span>{exercise.weightUnit ? <>SUGGESTED WEIGHT<strong>{suggestion ?? '—'} <small>{exercise.weightUnit}</small></strong></> : <>BODYWEIGHT<strong>Reps only</strong></>}</span></div>
       {exercise.weightUnit && <p className="suggestion-note">{suggestion === null ? 'No previous working weight yet.' : 'Your last working weight · progression logic to follow'}</p>}
       <SetLogger key={`${exercise.id}-${editSet?.id ?? `new-${sets.length}`}`} exercise={exercise} setNumber={sets.filter(s => !s.warmup).length + 1} initialSet={editSet} defaultWarmup={sets.length < 2} previousSet={previousSet} firstWorkingSet={!sets.some(set => !set.warmup)} recommendedWeight={suggestion} onSave={saveSet} onCancel={() => setEditSet(undefined)} />

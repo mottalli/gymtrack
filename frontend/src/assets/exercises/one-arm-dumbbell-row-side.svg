@@ -1,0 +1,55 @@
+<svg viewBox="0 0 300 220" role="img" aria-labelledby="demo-title" aria-describedby="demo-description" xmlns="http://www.w3.org/2000/svg" width="300" height="220">
+<title id="demo-title">One-arm Dumbbell row — side view</title>
+<desc id="demo-description">Support one hand and knee on the bench. Pull toward your hip; repeat on the other side. Simplified side-view projection; illustrative motion only.</desc>
+<path class="demo-floor" d="M28 202H272" fill="rgb(0, 0, 0)" stroke="rgb(203, 213, 235)" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter"/>
+<g class="demo-bench demo-flat-support-bench" fill="rgb(203, 214, 244)" stroke="rgb(156, 175, 217)" stroke-width="4px" stroke-linecap="round" stroke-linejoin="miter">
+<rect x="99" y="153" width="138" height="10" rx="4"/>
+<path d="M145 164V200M225 164V200"/>
+</g>
+<g class="demo-body" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<g class="demo-leg demo-leg-0" opacity="1" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="170,124 183,154 222,154" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="170,124 183,154 222,154;170,124 183,154 222,154;170,124 183,154 222,154;170,124 183,154 222,154;170,124 183,154 222,154" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="222,154 234,154" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="222,154 234,154;222,154 234,154;222,154 234,154;222,154 234,154;222,154 234,154" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g class="demo-leg demo-leg-1" opacity="0.45" fill="rgb(50, 88, 230)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="170,124 188,166 194,198" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="170,124 188,166 194,198;170,124 188,166 194,198;170,124 188,166 194,198;170,124 188,166 194,198;170,124 188,166 194,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="194,198 206,198" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="194,198 206,198;194,198 206,198;194,198 206,198;194,198 206,198;194,198 206,198" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<polyline points="106,106 170,124" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="106,106 170,124;106,106 170,124;106,106 170,124;106,106 170,124;106,106 170,124" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<polyline points="88,89 106,106" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="88,89 106,106;88,89 106,106;88,89 106,106;88,89 106,106;88,89 106,106" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+<circle cx="88" cy="89" r="12">
+<animate attributeName="cx" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite" values="88;88;88;88;88"/>
+<animate attributeName="cy" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite" values="89;89;89;89;89"/>
+</circle>
+</g>
+<g class="demo-near-arm" fill="rgb(0, 0, 0)" stroke="rgb(50, 88, 230)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<polyline points="106,106 111,143 114,180" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="106,106 111,143 114,180;106,106 154,94 158,130;106,106 154,94 158,130;106,106 111,143 114,180;106,106 111,143 114,180" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g class="demo-support-arm" fill="rgb(0, 0, 0)" stroke="rgb(84, 116, 212)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<polyline points="111,106 111,130 111,153" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<animate attributeName="points" values="111,106 111,130 111,153;111,106 111,130 111,153;111,106 111,130 111,153;111,106 111,130 111,153;111,106 111,130 111,153" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+</polyline>
+</g>
+<g>
+<g class="demo-dumbbell" transform="translate(114 180)" fill="rgb(37, 58, 89)" stroke="rgb(37, 58, 89)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter">
+<animateTransform attributeName="transform" type="translate" values="114 180;158 130;158 130;114 180;114 180" keyTimes="0;0.4;0.5;0.9;1" dur="4s" repeatCount="indefinite"/>
+<path d="M-10 0H10" stroke-width="4"/>
+<rect x="-14" y="-9" width="6" height="18" rx="2"/>
+<rect x="8" y="-9" width="6" height="18" rx="2"/>
+</g>
+</g>
+</svg>

@@ -88,15 +88,20 @@ src/
   App.tsx                 Workout selection, history, API loading/error states
   api.ts                  GraphQL client and DTO-to-UI mapping (grams ↔ kg)
   domain.ts               Typed frontend models and sample plan fixtures
+  assets/exercises/       30 standalone SVG files (editable artwork and motion)
   components/
     NumberStepper.tsx     + [number] −, also supports direct entry
     SetLogger.tsx         One-set entry, warm-up toggle, editing
     SetList.tsx           Warm-ups first, tap to edit previous sets
     WorkoutPage.tsx       Exercise navigation and logging workflow
+    ExerciseDemo.tsx      Paired side/front SVG views and shared motion controls
+    exerciseDemos.ts      Exercise names, cues and lookup metadata
+    exerciseSvgAssets.ts  Imports the paired SVG files
     *.stories.tsx         Component states and interaction checks
   story-fixtures.ts       Story-only example performance data
 .storybook/               Shared preview, MSW and Storybook configuration
 tests/smoke.mjs            App-level browser smoke test
+tests/exercise-*.mjs       Seed coverage, SVG motion and mobile layout checks
 prototypes/               Previous standalone design studies
 ```
 
@@ -115,14 +120,46 @@ prototypes/               Previous standalone design studies
   the recorded set type. Later sets default to working sets.
 - A weight suggestion repeats the last recorded working weight for that exercise.
   No progression maths is implemented, and no suggestion appears without history.
-- Sets are saved to SQLite immediately when logged or edited. All started
-  sessions appear in history; there is no persisted completion state.
+- Selecting a workout opens an in-memory draft. The first logged set creates
+  the session atomically; later sets and edits save immediately to SQLite.
+- Completion is persisted. The home page offers to resume the ongoing session;
+  recording a new session's first set automatically finishes the previous one.
+- All 15 unique plan exercises have synchronized side/front SVG previews with
+  shared pause/play controls. Reduced-motion users start paused. The artwork and
+  SMIL tracks live in separate, self-contained `.svg` files under
+  `src/assets/exercises/`, not in React-generated geometry. Edit those files
+  directly; they also open independently in a browser. See that folder's README.
+- Illustrations are schematic, not professionally validated technique guides.
+  Seated Tricep Press illustrates one dumbbell held with both hands overhead;
+  Single Leg Split Squat illustrates the rear-foot-elevated variant. Unilateral
+  demonstrations show one side; repeat on both sides.
+- Lunges use a staged step / plant / lower / rise / return sequence, with
+  solved knee positions, a planted leading foot and rear toes, and a raised
+  rear heel during lowering. Both projections share the same sequence.
+
 - Recorded sets survive reloads and can be resumed from history. Unsubmitted
   set-entry drafts reset on exercise navigation. Failed saves retain their inputs.
 - Previous localStorage-only history is not automatically imported.
 - Next-workout suggestions follow the latest session's position in
   the plan; users can always choose any workout.
 - Statistics and plan editing remain out of scope.
+
+### Preview checks
+
+Run preview-specific checks without starting the app server:
+
+```sh
+npm run test:exercises
+```
+
+This checks coverage against the SQL seed and uses headless Chromium to verify
+all 30 views animate, shared controls stay synchronized, reduced motion starts
+paused, and views remain side by side at phone widths. It writes review sheets
+to `screenshots/all-exercises-start.png` and `screenshots/all-exercises-lift.png`.
+The lunge phase review sheet is `screenshots/lunge-phases.png`.
+Storybook's **ExerciseDemo → All Exercises** story provides a browsable gallery.
+
+### Tooling notes
 
 Vite is pinned to major 7: the latest Vite scaffold used major 8, whose native
 tooling crashed with `Illegal instruction` on this headless server. Vite 7,
