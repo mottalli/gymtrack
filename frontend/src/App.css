@@ -7,8 +7,6 @@
 .brand strong span, .desktop-brand>a span { color: var(--accent); margin-left: 3px; }
 .brand>span { font-size: 8px; letter-spacing: 1px; color: var(--muted); }
 .eyebrow { font-size: 9px; font-weight: 650; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 12px; }
-.home-heading { margin-bottom: 32px; }
-.home-heading>p:last-child { font-size: 13px; line-height: 1.7; color: var(--muted); margin-top: 17px; }
 .section-label { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: 1px; color: var(--muted); margin: 24px 0 13px; }
 .workouts { display: grid; gap: 10px; }
 .workout-choice { display: flex; width: 100%; align-items: center; gap: 18px; text-align: left; padding: 19px 17px; border: 1px solid var(--line); border-radius: 12px; background: white; }

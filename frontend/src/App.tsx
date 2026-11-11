@@ -112,7 +112,7 @@ export default function App() {
             <div className="empty"><strong>Your first session starts here.</strong><p>Start a workout and it’ll appear in your log. You can come back and edit any set.</p><button className="primary" onClick={() => setScreen('home')}>Choose a workout <span>→</span></button></div>}
         </> : <>
           <header className="brand"><strong>gymtrack<span>↗</span></strong><span>LET’S GET STRONGER</span></header>
-          <div className="home-heading"><p className="eyebrow">{selectedPlan?.name ?? 'YOUR TRAINING'}</p><h1>Your plan.<br />Your pace.</h1><p>Pick your workout. We’ll handle the notebook.</p></div>
+          <p className="eyebrow">{selectedPlan?.name ?? 'YOUR TRAINING'}</p>
           {plans.length > 1 && <div className="exercise-picker"><label htmlFor="plan-select">TRAINING PLAN</label><select id="plan-select" value={selectedPlan.id} onChange={event => setPlanId(event.target.value)}>{plans.map(plan => <option key={plan.id} value={plan.id}>{plan.name}</option>)}</select></div>}
           {(ongoing ?? active) && <button disabled={busy} className="resume" onClick={() => resume((ongoing ?? active)!)}><span>{ongoing ? 'Resume workout' : editing ? 'Continue editing' : 'Continue unsaved workout'}<strong>{ongoing ? workouts.find(workout => workout.id === ongoing.workoutId)?.name : workout?.name}</strong></span><span>→</span></button>}
           <div className="section-label"><span>YOUR WORKOUTS</span><span>{selectedPlan?.workouts.length ?? 0}-DAY PLAN</span></div>
